@@ -18,5 +18,20 @@ img {
 }
 
 ul {
-	list-style: number;
+	list-style: decimal;
+}
+
+ul>li:first-child>a:hover {
+	color: teal;
+	text-decoration-color: yellowgreen;
+}
+
+ul>:nth-child(2)>a:hover {
+	color: rgb(245, 120, 18);
+	text-decoration-color: rgb(255, 166, 1);
+}
+
+ul>:last-child>a:hover {
+	color: rgb(208, 16, 16);
+	text-decoration-color: red;
 }
