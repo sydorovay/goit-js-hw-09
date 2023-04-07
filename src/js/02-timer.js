@@ -64,7 +64,8 @@ function addLeadingZero(value) {
 }
 
 // обробник подій для кнопки старт
-startButton.addEventListener('click', getAndReturnDateWithAnInterval);
+startButton.addEventListener('click', getAndReturnDateWithAnInterval
+);
 
 //ф-ція отримує і заданий час, отримує різницю між отриманим і поточним часом, коли час до цільової дати вже минув, відображення на сторінці буде оновлено і показуватиме "00", забезпечує коректне відображення решти часу до цільової дати, з оновленням кожну секунду.
 function getAndReturnDateWithAnInterval() {
