@@ -1,20 +1,20 @@
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
-  color: #212121;
-  line-height: 1.5;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: #fafafa;
+	color: #212121;
+	line-height: 1.5;
 }
 
 img {
-  display: block;
-  max-width: 100%;
+	display: block;
+	max-width: 100%;
 }
 
 ul {
@@ -34,4 +34,68 @@ ul>:nth-child(2)>a:hover {
 ul>:last-child>a:hover {
 	color: rgb(208, 16, 16);
 	text-decoration-color: red;
+}
+
+.input {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	width: 200px;
+}
+
+.input {
+	border-radius: 50px;
+	margin-bottom: 20px;
+}
+
+.input>input {
+	position: relative;
+	margin-bottom: 15px;
+	color: rgb(93, 6, 123);
+	text-align: center;
+
+	border-radius: 5px;
+}
+
+.input>button {
+	border-radius: 5px;
+}
+
+.active-Btn {
+	border-color: rgb(87, 251, 133);
+}
+.active-Btn:hover {
+	cursor: pointer;
+	background-color: rgb(212, 248, 232);
+}
+.timer {
+	display: flex;
+	font-size: 36px;
+	justify-content: center;
+}
+
+.field {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-bottom: 15px;
+	text-align: center;
+	text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC, -14px -13px 2px rgba(206, 89, 55, 0);
+}
+
+.value {
+	color: rgb(137, 6, 251);
+}
+
+.label {
+	color: rgb(72, 2, 134)
+}
+
+.field:not(:first-child)::before {
+	content: ':';
+	position: absolute;
+	left: -15px;
 }
