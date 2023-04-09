@@ -15,11 +15,10 @@ function changeBodyColor() {
 }
 // Ф-ція зміни колюру з інтервалом і відключенням кнопки start
 function changeColor() {
-  if (!interval) {
     interval = setInterval(changeBodyColor, 1000);
     startButton.disabled = true;
   }
-}
+
 // ф-ція зупинки зміни колюру з активацією кнопки start
 function stopChangeBackgroundColor() {
   clearInterval(interval);
