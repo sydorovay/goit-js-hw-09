@@ -19,24 +19,28 @@ const options = {
   minuteIncrement: 1,
   onClose,
 };
+//ф-ція відключення кнопки
+function disableButton(button) {
+  button.disabled = true;
+}
+
+// кнопка старт - вимкнута за замовчуванням
+disableButton(startButton);
 
 //  обробник події onClose
 function onClose(selectedDates) {
   const selectedDate = selectedDates[0];
   if (selectedDate.getTime() < Date.now()) {
     Notiflix.Notify.failure('Please choose a date in the future');
-		startButton.disabled = true;
-		startButton.classList.remove('active-Btn');
+    disableButton(startButton);
+    startButton.classList.remove('active-Btn');
   } else {
-		startButton.disabled = false;
-		startButton.classList.add('active-Btn')
+    startButton.disabled = false;
+    startButton.classList.add('active-Btn');
   }
 }
 // створення віджета
 const picker = flatpickr(datePicker, options);
-
-// кнопка старт - вимкнута за замовчуванням
-startButton.disabled = true;
 
 // ф-ція підрахунку значень
 function convertMs(ms) {
@@ -64,30 +68,36 @@ function addLeadingZero(value) {
 }
 
 // обробник подій для кнопки старт
-startButton.addEventListener('click', getAndReturnDateWithAnInterval
-);
+startButton.addEventListener('click', getAndReturnDateWithAnInterval);
 
 //ф-ція отримує і заданий час, отримує різницю між отриманим і поточним часом, коли час до цільової дати вже минув, відображення на сторінці буде оновлено і показуватиме "00", забезпечує коректне відображення решти часу до цільової дати, з оновленням кожну секунду.
 function getAndReturnDateWithAnInterval() {
-	const targetDate = picker.selectedDates[0];
-	const intervalId = setInterval(function () {
-		const timeRemaining = targetDate.getTime() - Date.now();
-		if (timeRemaining < 0) {
-			clearInterval(intervalId);
-			days.textContent = '00';
-			hours.textContent = '00';
-			minutes.textContent = '00';
-			seconds.textContent = '00';
-			return;
-		}
-		const remaining = convertMs(timeRemaining);
-		days.textContent = addLeadingZero(remaining.days);
-		hours.textContent = addLeadingZero(remaining.hours);
-		minutes.textContent = addLeadingZero(remaining.minutes);
-		seconds.textContent = addLeadingZero(remaining.seconds);
-	}, 1000)
-// вимкнути доступ до вибору дати
-	startButton.classList.remove('active-Btn');
-	startButton.disabled = true;
-	datePicker.disabled = true
+  const targetDate = picker.selectedDates[0];
+  const intervalId = setInterval(function () {
+    const timeRemaining = targetDate.getTime() - Date.now();
+    if (timeRemaining < 0) {
+      clearInterval(intervalId);
+      days.textContent = '00';
+      hours.textContent = '00';
+      minutes.textContent = '00';
+      seconds.textContent = '00';
+      console.log('finish');
+      return;
+    }
+    const remaining = convertMs(timeRemaining);
+    days.textContent = addLeadingZero(remaining.days);
+    hours.textContent = addLeadingZero(remaining.hours);
+    minutes.textContent = addLeadingZero(remaining.minutes);
+    seconds.textContent = addLeadingZero(remaining.seconds);
+  }, 1000);
+
+	// інформація про поточний і обраний часи і значення таймеру
+  console.log(
+    `Current date: ${new Date()} \n\nTarget date: ${targetDate} \n\nthe timer is running for: `
+  );
+  console.log(convertMs(targetDate.getTime() - Date.now()));
+  // вимкнути доступ до вибору дати
+  startButton.classList.remove('active-Btn');
+  disableButton(startButton);
+  datePicker.disabled = true;
 }
