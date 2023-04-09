@@ -42,9 +42,6 @@ ul>:last-child>a:hover {
 	flex-direction: column;
 	margin: auto;
 	width: 200px;
-}
-
-.input {
 	border-radius: 50px;
 	margin-bottom: 20px;
 }
@@ -54,7 +51,6 @@ ul>:last-child>a:hover {
 	margin-bottom: 15px;
 	color: rgb(93, 6, 123);
 	text-align: center;
-
 	border-radius: 5px;
 }
 
@@ -65,15 +61,20 @@ ul>:last-child>a:hover {
 
 .btn-off {
 	border-color: none;
-	color : none;
+	color: none;
 }
+
 .active-Btn {
 	border-color: rgb(87, 251, 133);
+	box-shadow: rgba(16, 105, 16, 0.118) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
+
 .active-Btn:hover {
 	cursor: pointer;
 	background-color: rgb(212, 248, 232);
+	color: rgb(76, 66, 133)
 }
+
 .timer {
 	display: flex;
 	font-size: 36px;
