@@ -86,4 +86,8 @@ function getAndReturnDateWithAnInterval() {
 		minutes.textContent = addLeadingZero(remaining.minutes);
 		seconds.textContent = addLeadingZero(remaining.seconds);
 	}, 1000)
+// вимкнути доступ до вибору дати
+	startButton.classList.remove('active-Btn');
+	startButton.disabled = true;
+	datePicker.disabled = true
 }
